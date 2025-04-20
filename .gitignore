@@ -1,5 +1,7 @@
 venv/
 *.ini
+settings.ini
+__pycache__
 
 # PyCharm
 .idea/
