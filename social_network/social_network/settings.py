@@ -15,9 +15,10 @@ import os
 
 from pathlib import Path
 
-conf_file = Path("../settings.ini")
+conf_file = Path("settings.ini")
 config = configparser.ConfigParser()  # создаём объекта парсера
 config.read(conf_file)  # читаем конфиг
+print(os.path.abspath(conf_file))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
