@@ -1,0 +1,9 @@
+[Django_setting]
+SECRET_KEY=
+
+[PostgreSQL]
+NAME=
+USER=
+PASSWORD=
+HOST=
+PORT=

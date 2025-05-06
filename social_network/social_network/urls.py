@@ -14,23 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os.path import basename
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
-from posts.views import PostViewSet
+from posts.views import PostViewSet, CommentViewSet, LikeViewSet
 
 
-PostRouter = DefaultRouter()
-PostRouter.register('posts', PostViewSet)
+router = DefaultRouter()
+router.register('posts', PostViewSet)
+router.register('comments', CommentViewSet)
+router.register('likes', LikeViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(PostRouter.urls)),
-    # path('api/posts/<int:post_id>/comments/', include(CommentRouter.urls)),
-    # path('api/posts/<int:post_id>/likes/', LikeView.as_view()),
+    path('api/', include(router.urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

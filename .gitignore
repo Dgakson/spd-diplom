@@ -2,6 +2,7 @@ venv/
 *.ini
 settings.ini
 __pycache__
+*/media/photos/
 
 # PyCharm
 .idea/
